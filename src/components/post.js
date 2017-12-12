@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-import styled from 'styled-components'
+import styled from 'styled-components';
 import { setting } from '../styles/setting';
 
 const PostContainer = styled.section`
@@ -51,21 +51,18 @@ const PostItem = styled.li`
 export default class Post extends Component {
   render() {
     const post = this.props.post;
-
+    console.log(post);
+    
     const id = post.id;
     const title = post.title.rendered;
-    let excerpt = post.excerpt.rendered;
+    let excerpt = post.excerpt.rendered.replace("[&hellip;]", "");
     const categories = post._embedded['wp:term'][0];
     const tags = post._embedded['wp:term'][1];
     let thumbnail = post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url;
-    const backgroundImage = {
-      backgroundImage: 'url(' + thumbnail + ')'
-    }
-
-    excerpt = excerpt.replace("[&hellip;]", "");
+    const backgroundImage = { backgroundImage: 'url(' + thumbnail + ')' }
 
     return (
-      <PostContainer><PostLink to={"/" + id} title={title}>
+      <PostContainer key={id}><PostLink to={"/" + id} title={title}>
         <PostThumbnail style={backgroundImage}></PostThumbnail>
         <PostTitle>{title}</PostTitle>
         <PostDescription dangerouslySetInnerHTML={{ __html: excerpt }} />

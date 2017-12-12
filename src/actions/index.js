@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as actionTypes from '../constants';
 
-const WP_API = `http://corony.jp/wp-json`;
+const WP_API = `https://reparade.com/wp-json`;
 const WP_API_ENDPOINT = `${WP_API}/wp/v2`;
 
 export function fetchPosts(pageNum = 1) {

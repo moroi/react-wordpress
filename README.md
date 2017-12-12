@@ -1,6 +1,9 @@
 # A React/Redux WordPress theme
 WordPress theme developed using react/redux and WP-REST-API
 
+## Demo
+[https://react-wordpress.netlify.com](https://react-wordpress.netlify.com)
+
 ## Contains
 - [x] React
 - [x] React Routor
