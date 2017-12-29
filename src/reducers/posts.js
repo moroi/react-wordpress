@@ -1,4 +1,4 @@
-import { FETCH_POSTS, RECEIVE_POSTS, ERROR_POSTS } from '../constants';
+import { FETCH_POSTS, FETCH_TAX_POSTS, RECEIVE_POSTS, ERROR_POSTS } from '../constants';
 
 const initialState = {
   posts: [],
@@ -11,6 +11,14 @@ export default (state = initialState, action) => {
   let error;
   switch (action.type) {
     case FETCH_POSTS:
+      return {
+        posts: [],
+        totalPages: 0,
+        isError: null,
+        isLoading: true
+      };
+
+    case FETCH_TAX_POSTS:
       return {
         posts: [],
         totalPages: 0,

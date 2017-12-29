@@ -7,6 +7,8 @@ import configureStore from './store/configureStore';
 
 import App from './components/app';
 import HomeContainer from './containers/home';
+import CatContainer from './containers/cat';
+import TagContainer from './containers/tag';
 import SingleContainer from './containers/single';
 import NotFound from './components/404';
 
@@ -23,6 +25,8 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={HomeContainer} />
           <Route path="/:id(\d+)" component={SingleContainer} />
+          <Route path="/:cat" component={CatContainer} />
+          <Route path="/tag/:tag" component={TagContainer} />
           <Route component={NotFound} />
         </Switch>
       </App>

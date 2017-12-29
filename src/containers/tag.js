@@ -14,7 +14,7 @@ function mapDispatchToProps(dispatch) {
 
   return {
     fetchPosts: (postType, pageNum, perPage) => {
-      dispatch(fetchPosts("posts", pageNum, 10)).then(response => {
+      dispatch(fetchPosts('posts', pageNum, 10)).then(response => {
         if (!response.error) {
           let newPosts = posts.concat(response.payload.data);
           dispatch(

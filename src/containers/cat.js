@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { fetchPosts, receivePosts, errorPosts } from '../actions';
+import { fetchTaxPosts, getTaxId, receivePosts, errorPosts } from '../actions';
 
-import Home from '../components/home';
+import Cat from '../components/cat';
 
 function mapStateToProps(state) {
   return {
@@ -11,10 +11,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   let posts = [];
+  let taxId = getTaxId('categories', this.props.match.params.slug);
 
   return {
-    fetchPosts: (postType, pageNum, perPage) => {
-      dispatch(fetchPosts("posts", pageNum, 10)).then(response => {
+    fetchTaxPosts: (postType, tax, taxId, pageNum, perPage) => {
+      dispatch(fetchTaxPosts('posts', 'categories', taxId, pageNum, 10)).then(response => {
         if (!response.error) {
           let newPosts = posts.concat(response.payload.data);
           dispatch(
@@ -31,4 +32,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Cat);
